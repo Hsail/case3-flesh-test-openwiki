@@ -1,3 +1,11 @@
+---
+type: Project
+title: case3-flesh-test Quickstart
+description: Minimal throwaway repository for OpenWiki Stage 2 case-3 isolated flesh-review test.
+resource: /README.md
+tags: [openwiki, flesh-review, isolated-test]
+---
+
 # OpenWiki — case3-flesh-test
 
 ## Overview
