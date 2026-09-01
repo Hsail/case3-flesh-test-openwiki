@@ -1,39 +1,52 @@
 ---
 type: Project
 title: case3-flesh-test Quickstart
-description: Minimal throwaway repository for OpenWiki Stage 2 case-3 isolated flesh-review test.
-resource: /README.md
-tags: [openwiki, flesh-review, isolated-test]
+description: Minimal throwaway repository for the OpenWiki Stage 2 case-3 detail-completion isolation test — one function (pkg/greet.py) plus a scheduled OpenWiki CI workflow.
+tags: [openwiki, flesh-review, isolated-test, ci]
+verified:
+  - by: openwiki/0.4.3
+    at: 2026-09-01T12:51:36.594Z
+sources:
+  - id: openwiki-source-74f7e4b979e6e22f8216ee3a
+    resource: repo://.github/workflows/._openwiki-update.yml
+  - id: openwiki-source-6d4b4e707b8d60b6ccfa3425
+    resource: repo://.github/workflows/openwiki-update.yml
+  - id: openwiki-source-8037e2358a2c4f9b2c722a11
+    resource: repo://AGENTS.md
+  - id: openwiki-source-a2371d6362e5db4bc834ad03
+    resource: repo://CLAUDE.md
+  - id: openwiki-source-5aab4b7d9b4c6fa297952f4b
+    resource: repo://pkg/._greet.py
+  - id: openwiki-source-5ab8e3d9302bf393b6f368ce
+    resource: repo://pkg/greet.py
+  - id: openwiki-source-23775c3de52f3ab95a13cb8b
+    resource: repo://README.md
+generated: { by: "openwiki/0.4.3", at: "2026-09-01T12:51:36.594Z" }
 ---
 
 # OpenWiki — case3-flesh-test
 
-## Overview
+## What This Repo Is
 
-This is a **minimal throwaway repository** created for the OpenWiki Stage 2 case-3 "细节补全隔离真跑" (detail-completion isolation test). It is not a production project or a teaching demo — it exists solely to exercise the OpenWiki documentation pipeline in an isolated environment.
+This is a **minimal throwaway repository** for the OpenWiki Stage 2 case-3 "细节补全隔离真跑" (detail-completion isolation test) — specifically the *confirm-1* (从零接线, wiring from scratch) and *confirm-9* (免 token 可见对照, token-free visible comparison) scenarios. It is **not** a production project or a teaching demo; it exists solely to exercise the OpenWiki documentation pipeline in an isolated environment and is meant to be discarded after use (`README.md` states as much).
 
-The repository contains:
+The whole codebase is one function (`pkg/greet.py`) plus one CI workflow (`.github/workflows/openwiki-update.yml`). There are no other modules, packages, tests, or entrypoints.
 
-| Item | Path | Purpose |
-|------|------|---------|
-| Greeting function | `pkg/greet.py` | A single trivial function used as source material for the flesh-review test |
-| CI workflow | `.github/workflows/openwiki-update.yml` | Scheduled GitHub Actions job that runs OpenWiki and opens a PR with updated docs |
-| Agent instructions | `AGENTS.md`, `CLAUDE.md` | Standard OpenWiki boilerplate telling agents to start at this wiki |
-| Project README | `README.md` | States this is a throwaway test repo |
+## Task Routing
 
-## What This Repo Tests
+Because the repo is so small, this single page is the complete documentation — no sub-hierarchy is warranted. Route changes to the right file:
 
-The case-3 test validates that OpenWiki can:
-
-1. **Initialize from a near-empty repo** — generate meaningful documentation even when there is very little source code.
-2. **Handle isolation correctly** — confirm-1 (wiring from scratch) and confirm-9 (token-free visible comparison) scenarios are being tested.
-3. **Run via CI** — the GitHub Actions workflow exercises the full `openwiki code --update --print` cycle and creates a pull request with the results.
+| If you want to change… | Go to |
+|---|---|
+| The greeting logic | `pkg/greet.py` |
+| The doc-generation / CI cycle (triggers, provider, secrets, PR behavior) | `.github/workflows/openwiki-update.yml` |
+| Agent conventions (treat source/tests as authoritative, narrowest quiet validation) | `AGENTS.md` (see also `CLAUDE.md`) |
 
 ## Source Code
 
 ### `pkg/greet.py`
 
-The entire codebase is a single function:
+The entire source is a single function:
 
 ```python
 def greet(name: str) -> str:
@@ -41,23 +54,44 @@ def greet(name: str) -> str:
     return f"Hello, {name}!"
 ```
 
-It takes a name string and returns a greeting. The docstring explicitly states it exists for the detail-completion isolation test.
+`greet(name: str) -> str` takes a name string and returns `f"Hello, {name}!"`. Its docstring states it exists for the detail-completion isolation test. There are no other modules, packages, tests, or entrypoints — this function is the only source material OpenWiki has to document.
 
 ## CI / Operations
 
-The workflow at `.github/workflows/openwiki-update.yml` is the only operational surface:
+The only operational surface is the GitHub Actions workflow at `.github/workflows/openwiki-update.yml` (`name: OpenWiki Update`). It refreshes the wiki on a schedule and opens a PR with the result.
 
-- **Trigger**: Daily at 08:00 UTC (`cron: "0 8 * * *"`) or manual `workflow_dispatch`.
-- **Runtime**: Ubuntu-latest, Node.js 22.
-- **Steps**: Installs `openwiki` globally via npm, runs `openwiki code --update --print`, then uses `peter-evans/create-pull-request@v7` to open a PR on branch `openwiki/update`.
-- **Provider**: OpenRouter (`OPENWIKI_PROVIDER=openrouter`) with model `z-ai/glm-5.2`.
-- **Secrets required**: `OPENROUTER_API_KEY`, `LANGSMITH_API_KEY` (for tracing).
-- **PR paths**: The workflow commits changes under `openwiki/`, `AGENTS.md`, `CLAUDE.md`, and the workflow file itself.
+| Aspect | Value |
+|---|---|
+| **Triggers** | `schedule: cron: "0 8 * * *"` (daily 08:00 UTC) plus manual `workflow_dispatch` |
+| **Permissions** | `contents: write`, `pull-requests: write` |
+| **Runtime** | `ubuntu-latest`, Node.js 22 (`actions/setup-node@v4`) |
+| **Checkout** | `actions/checkout@v4` |
+| **Install** | `npm install --global openwiki` |
+| **Run** | `openwiki code --update --print` |
+| **Provider / model** | OpenRouter via `OPENWIKI_PROVIDER=openrouter`; `OPENWIKI_MODEL_ID=z-ai/glm-5.2` |
+| **PR action** | `peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63680` (v7) |
+| **PR branch** | `openwiki/update` |
+| **Commit message / title** | `docs: update OpenWiki` |
+| **Files committed (`add-paths`)** | `openwiki`, `AGENTS.md`, `CLAUDE.md`, `.github/workflows/openwiki-update.yml` |
 
-## macOS AppleDouble Files
+**Required secrets / env (set in the `Run OpenWiki` step):**
 
-The repository contains `._*` prefixed files (e.g. `._README.md`, `._greet.py`, `._.github`). These are macOS AppleDouble resource-fork artifacts created by the external SSD filesystem. They are **not source code** and should be ignored for all documentation and analysis purposes. Ideally they should be added to `.gitignore` or removed.
+- `OPENROUTER_API_KEY` — passed through `${{ secrets.OPENROUTER_API_KEY }}` for the OpenRouter provider.
+- `LANGSMITH_API_KEY` — passed through `${{ secrets.LANGSMITH_API_KEY }}`, with `LANGCHAIN_TRACING_V2=true` and `LANGCHAIN_PROJECT=openwiki` for LangSmith tracing.
 
-## Backlog
+Control flow is linear: checkout → set up Node 22 → install `openwiki` globally → run `openwiki code --update --print` (which regenerates `openwiki/`, `AGENTS.md`, and `CLAUDE.md`) → `peter-evans/create-pull-request@v7` commits only the `add-paths` above onto branch `openwiki/update` and opens a PR titled `docs: update OpenWiki` with an "Automated OpenWiki documentation update" body.
 
-No deferred areas — the repository is fully documented above.
+## Agent Instruction Files
+
+`AGENTS.md` and `CLAUDE.md` are OpenWiki-managed boilerplate (delimited by `<!-- OPENWIKI:START -->` … `<!-- OPENWIKI:END -->`). They are regenerated by the workflow and should **not** be hand-edited outside the OpenWiki generation cycle.
+
+- `AGENTS.md` tells agents the `openwiki/` evidence index is optional just-in-time context, instructs them to treat source code and tests as authoritative, to prefer the narrowest quiet validation that proves the changed behavior while preserving complete failure output, and not to hand-edit generated OpenWiki pages unless explicitly asked.
+- `CLAUDE.md` simply redirects agents to `AGENTS.md` for the OpenWiki agent instructions.
+
+## macOS AppleDouble Artifacts
+
+The working tree contains `._*`-prefixed files — e.g. `._README.md`, `._greet.py`, `._openwiki`, `._AGENTS.md`, `._CLAUDE.md`, `._.github`, `._workflows`, `._openwiki-update.yml`, `._last-update.json` — alongside the real ones. These are **macOS AppleDouble resource-fork artifacts** produced by the external SSD filesystem, **not source code**. Ignore them for all documentation and analysis purposes (ideally they belong in `.gitignore` or should be removed).
+
+## No Further Surface
+
+There are no additional systems to subdivide: no other modules, no tests, no build tooling beyond the single workflow, and no sub-pages. This quickstart is the complete information architecture for the repository.
