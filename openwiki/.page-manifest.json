@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "pages": {
+    "/openwiki/operations/openwiki-update-workflow.md": {
+      "pageVersion": "sha256:191256085254e2a8d390ea4d8c379b21a9718578d4219ac25bd39a4f075560a7",
+      "completedBy": "openwiki/0.5.2",
+      "completedRunId": "68d29666-727d-4b55-929e-5660ef1278f3",
+      "gitHead": "9977e02f0b7881a1f54d6120469e61f4c99d29eb",
+      "sourceFingerprint": "sha256:c7c0533b0d9322db27dc4560e5705bae58c0441c798a6c4421646e182ab68d49"
+    },
+    "/openwiki/quickstart.md": {
+      "pageVersion": "sha256:6f6e867bd63985e739d2fbe2cd02b1b9dc68317e3d9dc7a2250cd3976a51db3f",
+      "completedBy": "openwiki/0.5.2",
+      "completedRunId": "68d29666-727d-4b55-929e-5660ef1278f3",
+      "gitHead": "9977e02f0b7881a1f54d6120469e61f4c99d29eb",
+      "sourceFingerprint": "sha256:c7c0533b0d9322db27dc4560e5705bae58c0441c798a6c4421646e182ab68d49"
+    }
+  }
+}
