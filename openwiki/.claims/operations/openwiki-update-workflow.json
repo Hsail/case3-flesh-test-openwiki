@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:191256085254e2a8d390ea4d8c379b21a9718578d4219ac25bd39a4f075560a7",
+  "claims": [
+    {
+      "id": "claim_9fa999410f944dd0a2a7d3b0a3ad060b",
+      "statement": "The OpenWiki Update workflow is gated on a daily schedule cron '0 8 * * *' and manual workflow_dispatch only; there are no push or pull_request triggers.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L3-L6",
+          "version": "repo-lines-v1:sha256:ae3cfd11fbd2aec9ba8022f9055a23900230776141f0fd80f6908edd097fed23:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTk2ZGM0ODE0OWY1YTgzZDFlZDZkYmIzOWJiYzdlMmI5MDJhYTNkMzRkNmJkNWFlNGIyOTFiNjhkZjBjYTc5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNhZWQ1MDJhNWFkZWU3YmIwY2FkZDQ2Y2Q3NDYzYjUzMjBjNmNjZWU0NDgwZDY2ODU0ODg0MzEwNjM3NjExOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzViMWYyNGU2MTgwNWVlMWE5YmM3ODA0N2UxZTRiM2Q4NjE1N2Q2ZTM3ZDhhYzBiY2JlYmQ1ZTY1ZTVlZjFhYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzk0NjJkNWYyYzIwN2U2YjRmODI4NDNkOTE1NGZmMGJiYWQwMzQzOTI0YjJjM2M0YmFiZDk5Yjg3Y2NkNGI4MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_df84b49c5e824137ba24dae060dff7d4",
+      "statement": "The job grants contents:write and pull-requests:write at job level; both are required for peter-evans/create-pull-request to commit and open a PR, and dropping them breaks the pipeline.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L37-L47",
+          "version": "repo-lines-v1:sha256:c4e5bfde5f06df18694abe64aa08d57e48b17ac7c756601aa5b0f071c134c6f1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxY2ZmNGFkMzNiYTkxYjE0OGUxYjFiODI5MGI4ZmZmMjdiMjAzZmFiZmVlNTg3MDI4MmRlMzY3MzgzYjFiZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkYTQxNjY0OTBiMTcyOWI1ZWNiZmFmYmRlMmY1YmFiMDlkMmY3ZWVmZTQ0ZGQ1ZWZkMDZkZmUyMDViYjYxYTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxOTEzNzMyNTgyYzNlNjAzNTkwNzg2Yzg2ODM2OTUxZmYzNWU5YjJkMGY4ZDMxMDY3ZDRmNGM4NzQzZGIyYWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRkODlkZGU2NjgwODU1NjRmYmRkYzFiZDc3MzAxMGMyNGNhZGViOTViYzQ2ZTcxMTBiMzE5N2NkYmJhN2NkZjgifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L8-L10",
+          "version": "repo-lines-v1:sha256:dcc4bb79f6ebc8555975f87c1bbfadb4481f70b03c1a7b0c9ccb4ee3dac77d61:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzUyNjI0N2VkZTAwNmU5YmRhYjljNjg1MDcyODQyNWQxYjQxNjZjYWY1Y2FjNTBjZjA5NTVjNDRkMjRjMWE4ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTc0M2EyYTJmYjgyZWFlZDI0ODhlMjg2NGQ0MjNiZWI1MDA2MWRkNDIzZDgwYjg3MjFkM2JhZTVhNjQ3YTdmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjg4ZGMwMjcwODY5OTQyYjg1ZTUyOTViYmE0NGM3YjI0MWZiYTcxN2RmNGRkZjcyMmU1ODNjZTZjNDEwZjIwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2JhNWFmZmQ4MjMxYzBlODFiYmNkNDIxNTRhMWNjOTBlODZlZmY2NjM1NWMwNDhjZTU1YjMyMzdiZGFjM2ExZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_62b8790e6c924267be3ef179a253c509",
+      "statement": "The update job runs a linear sequence: actions/checkout@v4, actions/setup-node@v4 pinned to Node 22, npm install --global openwiki, openwiki code --update --print, then peter-evans/create-pull-request@v7 (pinned by SHA 22a9089034f40e5a961c8808d113e2c98fb63676, tagged v7).",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L12-L38",
+          "version": "repo-lines-v1:sha256:bce438309ac17fd65d8db3e7c348e7ee79ebfc7c3deccf2d40745c4ccfbdd42f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5ZDgwMTU0ZWQ0MmZjNWM3NzliMTMzMTU3OGI1OGI4OWM4MDFlYWNlNzRmMjRjZDQ4ZWI0YTIzNTc5NDBhOTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5YmEwMjZkOGQ5YTE4ZjQ2YjRmNjBhNGM4MGYzZjMzYTlhMzJiZDMzODE3MGUxZWVmMTlhMGExNzUxYzlkNjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE2ZjdkMzdmYjI5NzM5OWZlYTJhNWNlZjFjYzQwMjhjODk5NzlhOTA1MGE5Mjg1NmYwZDk2ZTFjMThiYTE5YTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMxNGEyMGI3MjFmODUyMDhjM2U5NzU3MjMzOGNmZDI0ZmRjYTNlZTk4N2FlODIyOTM1YzAyMjIwNTcwOTEzNTMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_33b71ffe8cd6490aa52102df4139cbc5",
+      "statement": "The job runs on ubuntu-latest, uses Node 22, and installs OpenWiki globally from npm without pinning a version, so each run uses the latest published OpenWiki CLI.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L14-L25",
+          "version": "repo-lines-v1:sha256:46eb1f6b2d63bde9ab268351e0672e69da11a8c0e4ec567615cdac96106625b0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzMzczMzRhZWMwZGNiMjRlNDBlM2MyMGRjMDlkNTlhZjY3NDNkMDI3ZGJmZjUwYzFhY2EwODk3NDcxMTc2NzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkZWRlNGJlYzRjZGRiYWJkMzMzNzRiMTJlMWJmNzY3ZDY5YjQ4MzBiM2U3YzA3NTkwYjIzNGU2M2IwMTQ5MzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNiYTVhZmZkODIzMWMwZTgxYmJjZDQyMTU0YTFjYzkwZTg2ZWZmNjYzNTVjMDQ4Y2U1NWIzMjM3YmRhYzNhMWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUyMzI1NzRmYmIzMjY1MzdmYjUxMDdjMDgzNWQ4ZWRhODZiNmE3NTY1ZDdlZjVmYTlmY2JlODg4NDJiZThiNGUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_736cf27a8c404c5b9899bbdf4d21dd5a",
+      "statement": "The OpenWiki run uses OPENWIKI_PROVIDER=openrouter and OPENWIKI_MODEL_ID=z-ai/glm-5.2, fixed in the workflow env rather than per-run configurable.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L27-L35",
+          "version": "repo-lines-v1:sha256:09472134417520ba292a52cb8dd7c73ac64d91260b0167779f033aebc15e3d2c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBlOGY5ZmE0MGU3YmQwNDk5ZDFjMGQ4M2ZkNzU4YWE4NWIzMDg0MmRiZDYxZjBlYTZiN2FlMTBlZmVjNzZkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhmOGI4MDI3NDFhZmM3ZmIzODQwZmVjZGM0M2Q3ZjhlNDAyM2JiZmNiNWI3ZWM2NWVlMDg4Nzk4ZDg1MTcxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWMwMTc2OTBjMDhjOGUwMDY4MDVkYjQ3ZDAzNWYxZTVhODk2YjVlOTE1NzRjOTllMTg2ZjFlNGZlNzliNTJjMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTM1NzQ2YWFjZjY4MjY4NTI4ZjFkMmQ2NjQ0MzYxOTNkNmYwMWViZDcwZjg1M2YyYThhMzNiNjI4NjU2ZGU1ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b248bd62269a41b1b67c8678b76f5e9e",
+      "statement": "Two repository secrets are required: OPENROUTER_API_KEY (authenticates the OpenRouter LLM calls) and LANGSMITH_API_KEY (authenticates LangSmith tracing).",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L27-L35",
+          "version": "repo-lines-v1:sha256:09472134417520ba292a52cb8dd7c73ac64d91260b0167779f033aebc15e3d2c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBlOGY5ZmE0MGU3YmQwNDk5ZDFjMGQ4M2ZkNzU4YWE4NWIzMDg0MmRiZDYxZjBlYTZiN2FlMTBlZmVjNzZkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhmOGI4MDI3NDFhZmM3ZmIzODQwZmVjZGM0M2Q3ZjhlNDAyM2JiZmNiNWI3ZWM2NWVlMDg4Nzk4ZDg1MTcxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWMwMTc2OTBjMDhjOGUwMDY4MDVkYjQ3ZDAzNWYxZTVhODk2YjVlOTE1NzRjOTllMTg2ZjFlNGZlNzliNTJjMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTM1NzQ2YWFjZjY4MjY4NTI4ZjFkMmQ2NjQ0MzYxOTNkNmYwMWViZDcwZjg1M2YyYThhMzNiNjI4NjU2ZGU1ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_efe0cbda740648e989084e956e75b18a",
+      "statement": "LangSmith/LangChain v2 tracing is hard-coded on via LANGCHAIN_PROJECT=openwiki and LANGCHAIN_TRACING_V2=true, so every run is traced to the openwiki LangSmith project.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L27-L35",
+          "version": "repo-lines-v1:sha256:09472134417520ba292a52cb8dd7c73ac64d91260b0167779f033aebc15e3d2c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBlOGY5ZmE0MGU3YmQwNDk5ZDFjMGQ4M2ZkNzU4YWE4NWIzMDg0MmRiZDYxZjBlYTZiN2FlMTBlZmVjNzZkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhmOGI4MDI3NDFhZmM3ZmIzODQwZmVjZGM0M2Q3ZjhlNDAyM2JiZmNiNWI3ZWM2NWVlMDg4Nzk4ZDg1MTcxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWMwMTc2OTBjMDhjOGUwMDY4MDVkYjQ3ZDAzNWYxZTVhODk2YjVlOTE1NzRjOTllMTg2ZjFlNGZlNzliNTJjMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTM1NzQ2YWFjZjY4MjY4NTI4ZjFkMmQ2NjQ0MzYxOTNkNmYwMWViZDcwZjg1M2YyYThhMzNiNjI4NjU2ZGU1ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f93191da92634f28bb02ee969efaf6fd",
+      "statement": "The create-pull-request step commits only changes under four add-paths targets: openwiki, AGENTS.md, CLAUDE.md, and .github/workflows/openwiki-update.yml; unrelated working-tree changes are ignored.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L37-L44",
+          "version": "repo-lines-v1:sha256:cd6a3f3becab2d03af86c7319b2058c201beefe61b7bd8d8270f94dd80b2852a:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDFjZmY0YWQzM2JhOTFiMTQ4ZTFiMWI4MjkwYjhmZmYyN2IyMDNmYWJmZWU1ODcwMjgyZGUzNjczODNiMWJlMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWJiZDQxZDkxYjdjN2VlZTMxMjgwMzk4YTcxMjU5OTYwMTM4NDYxOTYwMjg5NTMxZTlhZDE1ZDg0MjJkZGY1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDE5MTM3MzI1ODJjM2U2MDM1OTA3ODZjODY4MzY5NTFmZjM1ZTliMmQwZjhkMzEwNjdkNGY0Yzg3NDNkYjJhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGQ1OWZlYmVkNTNiODhlZDFmZDcxMjM3ZWUxZDkyNjVmMGRiODZiYzU4YzAyNTJjMTE1MmUyMWY3N2E1NTc4YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d6a9435361004ac19c5798efdc57ab63",
+      "statement": "Self-modification of the workflow file is in scope for its own PRs because .github/workflows/openwiki-update.yml is one of the add-paths targets, so an OpenWiki update run may rewrite the workflow that produced it.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L51",
+          "version": "repo-lines-v1:sha256:bc6af93a5bebbf2ce64d5339b410dfb378f3e39e46e25317d1db6fe393c42509:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L40-L44",
+          "version": "repo-lines-v1:sha256:463d8a16694a900d98e6f806208667582c2e164e7b18dfeebab4595f94438d62:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmE5NjJlN2U5YjhhZjcxZDU0OGM5NmFkMjY1NmZlYTg1YzQ0ODUyNDYwOWU1NTBhZjVjZWIwOWVkOTJkYWZhMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWJiZDQxZDkxYjdjN2VlZTMxMjgwMzk4YTcxMjU5OTYwMTM4NDYxOTYwMjg5NTMxZTlhZDE1ZDg0MjJkZGY1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzZlYjA1NjRmMTMwYmU0OTZjMzM0NjNlZjc5NzU0MTJhNTRhY2U0MWFhMjQ0ZjNjMjZlYzkwOTdmOTAyYjc4OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGQ1OWZlYmVkNTNiODhlZDFmZDcxMjM3ZWUxZDkyNjVmMGRiODZiYzU4YzAyNTJjMTE1MmUyMWY3N2E1NTc4YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3467fd4750f1432781d7d90c073a9e51",
+      "statement": "The PR is opened on branch openwiki/update with both commit message and title 'docs: update OpenWiki', using a fixed two-line body; create-pull-request force-pushes to this single branch so there is one rolling update PR at a time.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L37-L51",
+          "version": "repo-lines-v1:sha256:2507faafa9faf9e43981bd485c049cc5f2131c782c9588d50641b6b05c8b5686:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxY2ZmNGFkMzNiYTkxYjE0OGUxYjFiODI5MGI4ZmZmMjdiMjAzZmFiZmVlNTg3MDI4MmRlMzY3MzgzYjFiZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxOTEzNzMyNTgyYzNlNjAzNTkwNzg2Yzg2ODM2OTUxZmYzNWU5YjJkMGY4ZDMxMDY3ZDRmNGM4NzQzZGIyYWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_90e7075754a34922b326bddcacf86804",
+      "statement": "If openwiki code --update --print produces no diff in any add-paths target, create-pull-request detects the empty diff and does not open a PR; the run succeeds without producing a pull request.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L37-L51",
+          "version": "repo-lines-v1:sha256:2507faafa9faf9e43981bd485c049cc5f2131c782c9588d50641b6b05c8b5686:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxY2ZmNGFkMzNiYTkxYjE0OGUxYjFiODI5MGI4ZmZmMjdiMjAzZmFiZmVlNTg3MDI4MmRlMzY3MzgzYjFiZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxOTEzNzMyNTgyYzNlNjAzNTkwNzg2Yzg2ODM2OTUxZmYzNWU5YjJkMGY4ZDMxMDY3ZDRmNGM4NzQzZGIyYWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6eec2b435ba74161af3fcdcbc9d9cd35",
+      "statement": "AGENTS.md instructs readers not to hand-edit generated openwiki/ pages unless explicitly asked and to prefer updating source and letting OpenWiki regenerate; this workflow is the regeneration mechanism that guidance assumes.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L1-L12",
+          "version": "repo-lines-v1:sha256:e196ae5aef70399b7f4cd655c0440c5c589dbecac5863d6178aa1c195d5a4325:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmMTgwZjljMTI2OTAzYmNjMzMxYWE5NTQ1NmU0OTQ0NGE3ZDRkMDExZThhMmE4M2Y1ZGM4NzAyMzkxODEyZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5Zjc4NzE0ODkzYWE3Nzk0MmNlYTFjNGEyZTAyMzFkYmI3ZmEyYTQxYTcwYzgxNDYwYTNjNjc1NjJkYTNhYWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.2",
+    "at": "2026-09-19T12:08:05.732Z"
+  }
+}

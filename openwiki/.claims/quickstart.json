@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:6f6e867bd63985e739d2fbe2cd02b1b9dc68317e3d9dc7a2250cd3976a51db3f",
+  "claims": [
+    {
+      "id": "claim_8758be1c752443f7a9cc24c5724e0d3f",
+      "statement": "case3-flesh-test is a minimal throwaway repository created solely for the OpenWiki Stage 2 case-3 detail-completion isolation test, not a production or teaching project.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:7a2f054f9c632eeea3c1d21173ab05a2790edbdbf0c545a12871cb4349ec8484"
+        }
+      ]
+    },
+    {
+      "id": "claim_37ae78f04e0e4c5087a952820ded3acf",
+      "statement": "The case-3 test exercises OpenWiki initialization from a near-empty repo and two isolation scenarios: confirm-1 (wiring from scratch) and confirm-9 (token-free visible comparison).",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:7a2f054f9c632eeea3c1d21173ab05a2790edbdbf0c545a12871cb4349ec8484"
+        }
+      ]
+    },
+    {
+      "id": "claim_0071f69deb1c4f68b7846457d9a1dcc1",
+      "statement": "The only source code is a single greet(name) function in pkg/greet.py that returns 'Hello, {name}!' and whose docstring states it exists for the detail-completion isolation test; there is no test suite.",
+      "evidence": [
+        {
+          "resource": "repo://pkg/greet.py",
+          "version": "repo-file-v1:sha256:ece5831094a891138a778b2a80da72f7896a98434969f210f324956d61e49094"
+        }
+      ]
+    },
+    {
+      "id": "claim_a7baa3d8dcaa49069fb70bbb03442c71",
+      "statement": "The OpenWiki GitHub Actions workflow at .github/workflows/openwiki-update.yml is the repository's only real changeable operational surface, installing openwiki, running openwiki code --update --print, and opening a PR on the openwiki/update branch.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml",
+          "version": "repo-file-v1:sha256:bc6af93a5bebbf2ce64d5339b410dfb378f3e39e46e25317d1db6fe393c42509"
+        }
+      ]
+    },
+    {
+      "id": "claim_a30702cd375047aeac2b4df04d99d32f",
+      "statement": "Generated OpenWiki pages should not be hand-edited; the scheduled OpenWiki GitHub Actions workflow refreshes the wiki, and source code and tests are authoritative over generated docs.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md",
+          "version": "repo-file-v1:sha256:e196ae5aef70399b7f4cd655c0440c5c589dbecac5863d6178aa1c195d5a4325"
+        }
+      ]
+    },
+    {
+      "id": "claim_4935ee0830754c6a9c42fb1a6b4b2270",
+      "statement": "The repository root contains macOS AppleDouble resource-fork artifacts prefixed with ._ (e.g. ._.github, ._AGENTS.md, ._CLAUDE.md, ._README.md, ._pkg) from the external SSD filesystem; these are not source code or documentation and must be ignored for all analysis.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:7a2f054f9c632eeea3c1d21173ab05a2790edbdbf0c545a12871cb4349ec8484"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.2",
+    "at": "2026-09-19T12:08:05.732Z"
+  }
+}
