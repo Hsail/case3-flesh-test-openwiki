@@ -4,6 +4,21 @@ title: case3-flesh-test Quickstart
 description: Minimal throwaway repository for OpenWiki Stage 2 case-3 isolated flesh-review test.
 resource: /README.md
 tags: [openwiki, flesh-review, isolated-test]
+verified:
+  - by: openwiki/0.6.0
+    at: 2026-09-26T12:32:33.380Z
+sources:
+  - id: openwiki-source-6d4b4e707b8d60b6ccfa3425
+    resource: repo://.github/workflows/openwiki-update.yml
+  - id: openwiki-source-8037e2358a2c4f9b2c722a11
+    resource: repo://AGENTS.md
+  - id: openwiki-source-a2371d6362e5db4bc834ad03
+    resource: repo://CLAUDE.md
+  - id: openwiki-source-5ab8e3d9302bf393b6f368ce
+    resource: repo://pkg/greet.py
+  - id: openwiki-source-23775c3de52f3ab95a13cb8b
+    resource: repo://README.md
+generated: { by: "openwiki/0.6.0", at: "2026-09-26T12:32:33.380Z" }
 ---
 
 # OpenWiki — case3-flesh-test
@@ -18,7 +33,7 @@ The repository contains:
 |------|------|---------|
 | Greeting function | `pkg/greet.py` | A single trivial function used as source material for the flesh-review test |
 | CI workflow | `.github/workflows/openwiki-update.yml` | Scheduled GitHub Actions job that runs OpenWiki and opens a PR with updated docs |
-| Agent instructions | `AGENTS.md`, `CLAUDE.md` | Standard OpenWiki boilerplate telling agents to start at this wiki |
+| Agent instructions | `AGENTS.md`, `CLAUDE.md` | OpenWiki boilerplate telling agents not to preload the wiki and to use OpenWiki retrieval just-in-time |
 | Project README | `README.md` | States this is a throwaway test repo |
 
 ## What This Repo Tests
