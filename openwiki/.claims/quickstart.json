@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:7c55f43d27f2eb6b95df3e3148f7b48533a47db8cd9ae95db62238efb06971cc",
+  "claims": [
+    {
+      "id": "claim_a10cd8074bfa4e60bdd074d34c4a48ad",
+      "statement": "The repository is a minimal throwaway repository (not a production project or teaching demo) created solely to exercise the OpenWiki documentation pipeline in isolation for the Stage 2 case-3 detail-completion test (confirm-1 wiring from scratch + confirm-9 token-free visible comparison).",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:7a2f054f9c632eeea3c1d21173ab05a2790edbdbf0c545a12871cb4349ec8484"
+        },
+        {
+          "resource": "repo://pkg/greet.py",
+          "version": "repo-file-v1:sha256:ece5831094a891138a778b2a80da72f7896a98434969f210f324956d61e49094"
+        }
+      ]
+    },
+    {
+      "id": "claim_dbef90cbefd343c5838387e353aac626",
+      "statement": "The entire codebase is a single function greet(name: str) -> str in pkg/greet.py that returns f'Hello, {name}!'; its docstring states it exists for the detail-completion isolation test. There is no caller, no state, no configuration, and no error handling.",
+      "evidence": [
+        {
+          "resource": "repo://pkg/greet.py",
+          "version": "repo-file-v1:sha256:ece5831094a891138a778b2a80da72f7896a98434969f210f324956d61e49094"
+        }
+      ]
+    },
+    {
+      "id": "claim_e86f3f95033e4abcb86d53d7992a1f46",
+      "statement": "The only operational surface, the GitHub Actions workflow .github/workflows/openwiki-update.yml, triggers on a daily 08:00 UTC cron (\"0 8 * * *\") plus manual workflow_dispatch, and runs on ubuntu-latest with Node.js 22.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L22",
+          "version": "repo-lines-v1:sha256:c9992bb1e11605b06f2b8e093320dfe9af2197dcc1e79174755ada1640907425:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxNWI4NGU0YjA1MDc1NTY1MjFjNGI0ZWVmODY2NTQxY2QwNTc1YTFhZTNlZDA4OGUwZDFiZGY5MDM2YTBlMjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4NzFjMTIzMmZiNDliODgyYWYyNTIxOTM1MzQ2ODRjYjg5NTdhMjViM2IxMjAyZGYyZGQ0MjA0ZjlhYWQyNWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_23566827d9324ecd9e9f6aa5b3d8e6a2",
+      "statement": "The workflow installs openwiki globally via npm and runs `openwiki code --update --print` with OPENWIKI_PROVIDER=openrouter and OPENWIKI_MODEL_ID=z-ai/glm-5.2, requiring the OPENROUTER_API_KEY and LANGSMITH_API_KEY secrets (with LangSmith tracing via LANGCHAIN_PROJECT=openwiki and LANGCHAIN_TRACING_V2=true).",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L24-L35",
+          "version": "repo-lines-v1:sha256:d5e84d7a329072e4bf8cae8b4147bcf8f9cd69d187a3ded42e9b119706612503:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2Y2UwYjBkM2IzODEyMmJjMjc1MTVhOGQ5Njk2MTVkOWUxMGUyODA2NDRmNzYxMjIxZDA0NDc5YWQyNTM5M2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZjhiODAyNzQxYWZjN2ZiMzg0MGZlY2RjNDNkN2Y4ZTQwMjNiYmZjYjViN2VjNjVlZTA4ODc5OGQ4NTE3MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIzZjNiODgwMmIzMTBmZjJhZGQwMDI2YjgyZWUyZTllNTcxNTkxMmVhZjA4MWFmODZjZTExMGRkNjQyZmMxYTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzNTc0NmFhY2Y2ODI2ODUyOGYxZDJkNjY0NDM2MTkzZDZmMDFlYmQ3MGY4NTNmMmE4YTMzYjYyODY1NmRlNWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9da52e3e43954646abd7b678304fda86",
+      "statement": "The workflow creates an update PR via peter-evans/create-pull-request@v7 on branch openwiki/update, committing changes under add-paths openwiki, AGENTS.md, CLAUDE.md, and .github/workflows/openwiki-update.yml, with commit message and title 'docs: update OpenWiki'.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L37-L51",
+          "version": "repo-lines-v1:sha256:2507faafa9faf9e43981bd485c049cc5f2131c782c9588d50641b6b05c8b5686:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxY2ZmNGFkMzNiYTkxYjE0OGUxYjFiODI5MGI4ZmZmMjdiMjAzZmFiZmVlNTg3MDI4MmRlMzY3MzgzYjFiZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxOTEzNzMyNTgyYzNlNjAzNTkwNzg2Yzg2ODM2OTUxZmYzNWU5YjJkMGY4ZDMxMDY3ZDRmNGM4NzQzZGIyYWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_dae650e6720d49d0aab66ca27446ba47",
+      "statement": "The repository contains ._ prefixed files (e.g. ._README.md, ._AGENTS.md, ._CLAUDE.md, pkg/._greet.py, ._.github) that are macOS AppleDouble resource-fork artifacts from an external SSD filesystem, not source code, and must be ignored for documentation and analysis.",
+      "evidence": [
+        {
+          "resource": "repo://._.github",
+          "version": "repo-file-v1:sha256:6d320381798a9b0bfe01dab415600e5d894c91d0f99ffedb907102522c4331e7"
+        },
+        {
+          "resource": "repo://._README.md",
+          "version": "repo-file-v1:sha256:6d320381798a9b0bfe01dab415600e5d894c91d0f99ffedb907102522c4331e7"
+        },
+        {
+          "resource": "repo://pkg/._greet.py",
+          "version": "repo-file-v1:sha256:6d320381798a9b0bfe01dab415600e5d894c91d0f99ffedb907102522c4331e7"
+        }
+      ]
+    },
+    {
+      "id": "claim_910cbdd5d18c44cb933e88e34ea6df05",
+      "statement": "AGENTS.md and CLAUDE.md are standard OpenWiki boilerplate (not source code) instructing agents to use openwiki_search/openwiki_read for just-in-time retrieval and to fall back to openwiki/quickstart.md when those tools are unavailable; CLAUDE.md includes AGENTS.md by reference (@AGENTS.md).",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md",
+          "version": "repo-file-v1:sha256:8926524de63a1266e7592d9f1256ec367b67e9fa0583f343808e3e51f19d4990"
+        },
+        {
+          "resource": "repo://CLAUDE.md",
+          "version": "repo-file-v1:sha256:cd617c809957b5aeb601ce9856109475f6da8ed78835148d17c3097dd4daa848"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.0",
+    "at": "2026-10-03T12:49:18.580Z"
+  }
+}
