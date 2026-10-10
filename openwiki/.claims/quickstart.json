@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:d4c804bcda35c51b57ab63e2efb612cf5ef1cf11c53e0693f0559855a316bddc",
+  "claims": [
+    {
+      "id": "claim_8568e705eaaa4ab5bdbb170ed7d6ae3c",
+      "statement": "This repository is a minimal throwaway test fixture for the OpenWiki Stage 2 case-3 '细节补全隔离真跑' (detail-completion isolation test), intentionally near-empty and not a production or teaching project; it exercises the confirm-1 (从零接线 / wiring from scratch) and confirm-9 (免 token 可见对照 / token-free visible comparison) scenarios.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:7a2f054f9c632eeea3c1d21173ab05a2790edbdbf0c545a12871cb4349ec8484"
+        }
+      ]
+    },
+    {
+      "id": "claim_c82033e5bd03493bbc0b0e50ad43640b",
+      "statement": "The entire source code is a single function `greet(name: str) -> str` in `pkg/greet.py` that returns `f'Hello, {name}!'`; its Chinese docstring states it exists for the detail-completion isolation test.",
+      "evidence": [
+        {
+          "resource": "repo://pkg/greet.py",
+          "version": "repo-file-v1:sha256:ece5831094a891138a778b2a80da72f7896a98434969f210f324956d61e49094"
+        }
+      ]
+    },
+    {
+      "id": "claim_a5a0f2f89ef8450cb46ba3cc16557161",
+      "statement": "The only operational surface is the GitHub Actions workflow `.github/workflows/openwiki-update.yml`, triggered daily at 08:00 UTC (`cron: '0 8 * * *'`) or manually via `workflow_dispatch`, running on `ubuntu-latest` with Node.js 22.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L22",
+          "version": "repo-lines-v1:sha256:c9992bb1e11605b06f2b8e093320dfe9af2197dcc1e79174755ada1640907425:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxNWI4NGU0YjA1MDc1NTY1MjFjNGI0ZWVmODY2NTQxY2QwNTc1YTFhZTNlZDA4OGUwZDFiZGY5MDM2YTBlMjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4NzFjMTIzMmZiNDliODgyYWYyNTIxOTM1MzQ2ODRjYjg5NTdhMjViM2IxMjAyZGYyZGQ0MjA0ZjlhYWQyNWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4d774cbd5a264de6b89f86e04041799f",
+      "statement": "The workflow installs `openwiki` globally via npm and runs `openwiki code --update --print` with `OPENWIKI_PROVIDER=openrouter` and model `z-ai/glm-5.2` set via `OPENWIKI_MODEL_ID`; it requires `OPENROUTER_API_KEY` and `LANGSMITH_API_KEY` secrets and enables LangChain tracing via `LANGCHAIN_PROJECT=openwiki` and `LANGCHAIN_TRACING_V2=true`.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L24-L35",
+          "version": "repo-lines-v1:sha256:d5e84d7a329072e4bf8cae8b4147bcf8f9cd69d187a3ded42e9b119706612503:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2Y2UwYjBkM2IzODEyMmJjMjc1MTVhOGQ5Njk2MTVkOWUxMGUyODA2NDRmNzYxMjIxZDA0NDc5YWQyNTM5M2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZjhiODAyNzQxYWZjN2ZiMzg0MGZlY2RjNDNkN2Y4ZTQwMjNiYmZjYjViN2VjNjVlZTA4ODc5OGQ4NTE3MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIzZjNiODgwMmIzMTBmZjJhZGQwMDI2YjgyZWUyZTllNTcxNTkxMmVhZjA4MWFmODZjZTExMGRkNjQyZmMxYTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzNTc0NmFhY2Y2ODI2ODUyOGYxZDJkNjY0NDM2MTkzZDZmMDFlYmQ3MGY4NTNmMmE4YTMzYjYyODY1NmRlNWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bc3e7de61b6a4de48863847978bfb390",
+      "statement": "After running OpenWiki, the `peter-evans/create-pull-request@v7` step commits changes under `openwiki/`, `AGENTS.md`, `CLAUDE.md`, and `.github/workflows/openwiki-update.yml` to the `openwiki/update` branch and opens a pull request.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L37-L51",
+          "version": "repo-lines-v1:sha256:2507faafa9faf9e43981bd485c049cc5f2131c782c9588d50641b6b05c8b5686:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxY2ZmNGFkMzNiYTkxYjE0OGUxYjFiODI5MGI4ZmZmMjdiMjAzZmFiZmVlNTg3MDI4MmRlMzY3MzgzYjFiZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxOTEzNzMyNTgyYzNlNjAzNTkwNzg2Yzg2ODM2OTUxZmYzNWU5YjJkMGY4ZDMxMDY3ZDRmNGM4NzQzZGIyYWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7b32eb22a19c43a7b41649f23040bcc8",
+      "statement": "The repository contains macOS AppleDouble `._*` resource-fork files (e.g. `._README.md`, `._AGENTS.md`, `pkg/._greet.py`, `openwiki/._.last-update.json`) created by the external SSD filesystem; these are filesystem artifacts, not source code, and must be ignored for all documentation and analysis rather than documented as modules.",
+      "evidence": [
+        {
+          "resource": "repo://._README.md",
+          "version": "repo-file-v1:sha256:6d320381798a9b0bfe01dab415600e5d894c91d0f99ffedb907102522c4331e7"
+        },
+        {
+          "resource": "repo://pkg/._greet.py",
+          "version": "repo-file-v1:sha256:6d320381798a9b0bfe01dab415600e5d894c91d0f99ffedb907102522c4331e7"
+        }
+      ]
+    },
+    {
+      "id": "claim_9fe92245a1c844f89471d7ba67900dd3",
+      "statement": "Per `AGENTS.md` and `CLAUDE.md`, generated `openwiki/` pages are optional just-in-time context rather than required startup reading; agents should treat source code as authoritative, prefer the narrowest validation, and not hand-edit generated pages since the scheduled workflow regenerates them.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md",
+          "version": "repo-file-v1:sha256:8926524de63a1266e7592d9f1256ec367b67e9fa0583f343808e3e51f19d4990"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-10-10T14:04:17.983Z"
+  }
+}
