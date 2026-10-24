@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:187bc7f2802902527472ee7ea6966bd607a535b84f40bc1579c4b9d3bea2df46",
+  "claims": [
+    {
+      "id": "claim_f35c135493c54a0da7ed34d8248d4366",
+      "statement": "This repository is a minimal throwaway test fixture for the OpenWiki Stage 2 case-3 '细节补全隔离真跑' (detail-completion isolation test), not a production project or teaching demo; it exists solely to exercise the OpenWiki documentation pipeline in an isolated environment.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:7a2f054f9c632eeea3c1d21173ab05a2790edbdbf0c545a12871cb4349ec8484"
+        },
+        {
+          "resource": "repo://pkg/greet.py#L2-L2",
+          "version": "repo-lines-v1:sha256:b38ee08e55db2012a77ae2857785943b3edcfc5deabe1a5a017782e0d8b29079:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjM4ZWUwOGU1NWRiMjAxMmE3N2FlMjg1Nzc4NTk0M2IzZWRjZmM1ZGVhYmUxYTVhMDE3NzgyZTBkOGIyOTA3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjM4ZWUwOGU1NWRiMjAxMmE3N2FlMjg1Nzc4NTk0M2IzZWRjZmM1ZGVhYmUxYTVhMDE3NzgyZTBkOGIyOTA3OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjEsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2UyZWU4MWMwZDkwNmEzYjkyMjc5YjZiODM0MTExYTEyYjBjZDExOGZlM2Q1YjkyNTVlZjQzYmE4OGVmY2ViZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDgwNzY0YWFiNTc4YjlkNzcxNWMzYmU5M2I0ZWRjNTFlZjViYTAxNjAwZWFlMTVmZjlmNGMyMDAyZTBhNTlmZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6dd153415a54414a90d70e49218e46f1",
+      "statement": "The entire source codebase is a single function greet(name: str) -> str in pkg/greet.py that returns the f-string f'Hello, {name}!'; its Chinese docstring states it exists to return a greeting for the detail-completion isolation test.",
+      "evidence": [
+        {
+          "resource": "repo://pkg/greet.py#L1-L3",
+          "version": "repo-lines-v1:sha256:ece5831094a891138a778b2a80da72f7896a98434969f210f324956d61e49094:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2UyZWU4MWMwZDkwNmEzYjkyMjc5YjZiODM0MTExYTEyYjBjZDExOGZlM2Q1YjkyNTVlZjQzYmE4OGVmY2ViZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDgwNzY0YWFiNTc4YjlkNzcxNWMzYmU5M2I0ZWRjNTFlZjViYTAxNjAwZWFlMTVmZjlmNGMyMDAyZTBhNTlmZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cad2666a95104d3eb705a9b4fa084b20",
+      "statement": "The CI workflow is the only operational surface: it triggers on a daily 08:00 UTC cron and manual workflow_dispatch, runs on ubuntu-latest with Node.js 22, installs openwiki globally via npm, runs `openwiki code --update --print` with OPENWIKI_PROVIDER=openrouter and OPENWIKI_MODEL_ID z-ai/glm-5.2 requiring OPENROUTER_API_KEY and LANGSMITH_API_KEY secrets, then opens a PR via peter-evans/create-pull-request@v7 on branch openwiki/update committing openwiki/, AGENTS.md, CLAUDE.md, and the workflow file itself.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L51",
+          "version": "repo-lines-v1:sha256:bc6af93a5bebbf2ce64d5339b410dfb378f3e39e46e25317d1db6fe393c42509:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b90c231c48a845af96813fbdf72a107f",
+      "statement": "AGENTS.md and CLAUDE.md are generated OpenWiki boilerplate rather than hand-authored guidance; CLAUDE.md consists solely of an @AGENTS.md include, so both files carry identical content instructing agents to treat the openwiki/ evidence index as optional just-in-time context and to fall back to openwiki/quickstart.md when retrieval tools are unavailable.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L1-L16",
+          "version": "repo-lines-v1:sha256:8926524de63a1266e7592d9f1256ec367b67e9fa0583f343808e3e51f19d4990:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmMTgwZjljMTI2OTAzYmNjMzMxYWE5NTQ1NmU0OTQ0NGE3ZDRkMDExZThhMmE4M2Y1ZGM4NzAyMzkxODEyZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5Zjc4NzE0ODkzYWE3Nzk0MmNlYTFjNGEyZTAyMzFkYmI3ZmEyYTQxYTcwYzgxNDYwYTNjNjc1NjJkYTNhYWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://CLAUDE.md#L1-L7",
+          "version": "repo-lines-v1:sha256:cd617c809957b5aeb601ce9856109475f6da8ed78835148d17c3097dd4daa848:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWYxODBmOWMxMjY5MDNiY2MzMzFhYTk1NDU2ZTQ5NDQ0YTdkNGQwMTFlOGEyYTgzZjVkYzg3MDIzOTE4MTJkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDlmNzg3MTQ4OTNhYTc3OTQyY2VhMWM0YTJlMDIzMWRiYjdmYTJhNDFhNzBjODE0NjBhM2M2NzU2MmRhM2FhYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_90b6fe84c2e54e03ba5d94a4637ef1f4",
+      "statement": "The repository contains ._ prefixed entries (e.g. ._README.md, ._AGENTS.md, ._CLAUDE.md, ._pkg, ._.github, ._.git, ._openwiki) that are macOS AppleDouble resource-fork metadata sidecars from the external SSD filesystem, not source code, and should be ignored for documentation and analysis.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:7a2f054f9c632eeea3c1d21173ab05a2790edbdbf0c545a12871cb4349ec8484"
+        }
+      ]
+    },
+    {
+      "id": "claim_025030a82b074463b15c2bc433693a2d",
+      "statement": "The information architecture is intentionally a single wiki page with no sibling pages; every question about the repository resolves to this page, and there is no subsystem decomposition worth separate pages.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:7a2f054f9c632eeea3c1d21173ab05a2790edbdbf0c545a12871cb4349ec8484"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.2",
+    "at": "2026-10-24T12:18:29.870Z"
+  }
+}
