@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:6fd165e833204e7ac1935e350c0c963b33c2ec0cdc4aa23015e2846d180ea244",
+  "claims": [
+    {
+      "id": "claim_da40a34490094c219e9b9f70d2713c57",
+      "statement": "The entire source codebase is the single function `greet(name: str) -> str` in `pkg/greet.py`, which returns `f\"Hello, {name}!\"`; its docstring states it exists for the detail-completion isolation test (细节补全隔离测试用) and takes a name string returning a greeting.",
+      "evidence": [
+        {
+          "resource": "repo://pkg/greet.py",
+          "version": "repo-file-v1:sha256:ece5831094a891138a778b2a80da72f7896a98434969f210f324956d61e49094"
+        }
+      ]
+    },
+    {
+      "id": "claim_2866bc003eda41fbb0c3ef909e2690c5",
+      "statement": "The OpenWiki update workflow in `.github/workflows/openwiki-update.yml` triggers on a daily cron `0 8 * * *` (08:00 UTC) or manual `workflow_dispatch`, runs on `ubuntu-latest` with Node.js 22, installs `openwiki` globally via npm, and runs `openwiki code --update --print`.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L22",
+          "version": "repo-lines-v1:sha256:c9992bb1e11605b06f2b8e093320dfe9af2197dcc1e79174755ada1640907425:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxNWI4NGU0YjA1MDc1NTY1MjFjNGI0ZWVmODY2NTQxY2QwNTc1YTFhZTNlZDA4OGUwZDFiZGY5MDM2YTBlMjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4NzFjMTIzMmZiNDliODgyYWYyNTIxOTM1MzQ2ODRjYjg5NTdhMjViM2IxMjAyZGYyZGQ0MjA0ZjlhYWQyNWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_21aea40e128c4be38f856df228accd6b",
+      "statement": "The workflow sets `OPENWIKI_PROVIDER=openrouter`, `OPENWIKI_MODEL_ID=z-ai/glm-5.2`, and requires secrets `OPENROUTER_API_KEY` and `LANGSMITH_API_KEY` (with `LANGCHAIN_PROJECT=openwiki` and `LANGCHAIN_TRACING_V2=true` for tracing).",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L24-L32",
+          "version": "repo-lines-v1:sha256:532eaaf94cc76460ab844403d561abc1305dd61919987e8aa6c46917023b7a4c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODZjZTBiMGQzYjM4MTIyYmMyNzUxNWE4ZDk2OTYxNWQ5ZTEwZTI4MDY0NGY3NjEyMjFkMDQ0NzlhZDI1MzkzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDQyMTdiYWExZmRmNjdjMGI2NjYyZjZlMmY1OGQ5MjY3ZjFlZjc5MDlhMGZlOTMxYzRlMzFlYTlmMDkxZDlmNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjNmM2I4ODAyYjMxMGZmMmFkZDAwMjZiODJlZTJlOWU1NzE1OTEyZWFmMDgxYWY4NmNlMTEwZGQ2NDJmYzFhMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODUyZTA3OWY3MjEzNDY5MzliMzNiMTRkY2E5YWYwYzQzY2JiNTBhODRmNTJjMTJkN2ViNzA5MmIyY2E2NjBkNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_240078add037432987917c8d9142d776",
+      "statement": "The workflow uses `peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676` (v7) to open a PR on branch `openwiki/update` with commit message `docs: update OpenWiki`, adding paths `openwiki`, `AGENTS.md`, `CLAUDE.md`, and `.github/workflows/openwiki-update.yml`.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L34-L51",
+          "version": "repo-lines-v1:sha256:848dcfc664c3283e73fb1e381781faab33e9de1c26023093154bf2824d7d7d81:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBkOGRmNjBkNWQxYmQxNTgwNzliZTFmNGVhMmM3ZDFiODUxNGQzN2U5MWY3NmZmYmJlMDRjNDc5MjNiYjE5M2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQwYWVhZjk0MmIyYTM1NzU3Y2Y4YjkyMzdlYTk4YWRkMzIxNzYzYjhiZGI4NDhmYzY0NDMxMDFiZGMxOGJjZDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5b4bf6e82629404c930d57e2148e0438",
+      "statement": "The repository is a minimal throwaway repo for the OpenWiki Stage 2 case-3 细节补全隔离真跑 (confirm-1 从零接线 + confirm-9 免 token 可见对照), not a production or teaching project.",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:7a2f054f9c632eeea3c1d21173ab05a2790edbdbf0c545a12871cb4349ec8484"
+        }
+      ]
+    },
+    {
+      "id": "claim_47fd035874aa4cb0ae2638cca12cdbc4",
+      "statement": "The repository root and `pkg/`, `.github/workflows/` contain macOS AppleDouble `._*` prefixed files (`._README.md`, `._greet.py`, `._AGENTS.md`, `._CLAUDE.md`, `._github`, `._.github/workflows/._openwiki-update.yml`, etc.) that are filesystem resource-fork artifacts from the external SSD, not source code, and must be ignored for documentation/analysis.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md",
+          "version": "repo-file-v1:sha256:3f65427f27766385406120665601b3866f854937467101977cfcd5ab695bd575"
+        }
+      ]
+    },
+    {
+      "id": "claim_c6c3a44330b74daa9c1183b21a58e9db",
+      "statement": "`AGENTS.md` is standard OpenWiki agent boilerplate instructing agents to use just-in-time OpenWiki retrieval; `CLAUDE.md` simply transcludes `@AGENTS.md`. They are instructions context, not systems to document.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md",
+          "version": "repo-file-v1:sha256:3f65427f27766385406120665601b3866f854937467101977cfcd5ab695bd575"
+        },
+        {
+          "resource": "repo://CLAUDE.md",
+          "version": "repo-file-v1:sha256:cd617c809957b5aeb601ce9856109475f6da8ed78835148d17c3097dd4daa848"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-14T14:36:18.350Z"
+  }
+}
