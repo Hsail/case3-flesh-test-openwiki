@@ -4,6 +4,20 @@ title: case3-flesh-test Quickstart
 description: Minimal throwaway repository for OpenWiki Stage 2 case-3 isolated flesh-review test.
 resource: /README.md
 tags: [openwiki, flesh-review, isolated-test]
+verified:
+  - by: openwiki/0.9.0
+    at: 2026-11-14T14:36:18.350Z
+sources:
+  - id: openwiki-source-6d4b4e707b8d60b6ccfa3425
+    resource: repo://.github/workflows/openwiki-update.yml
+  - id: openwiki-source-8037e2358a2c4f9b2c722a11
+    resource: repo://AGENTS.md
+  - id: openwiki-source-a2371d6362e5db4bc834ad03
+    resource: repo://CLAUDE.md
+  - id: openwiki-source-5ab8e3d9302bf393b6f368ce
+    resource: repo://pkg/greet.py
+  - id: openwiki-source-23775c3de52f3ab95a13cb8b
+    resource: repo://README.md
 ---
 
 # OpenWiki — case3-flesh-test
